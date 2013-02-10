@@ -1,7 +1,7 @@
 from pygments.lexers.sql import SqlLexer
 from pygments.token import Keyword, Name
 
-from _forms_builtins import FORMS_BUILTINS
+from _forms_builtins import ORACLE_KEYWORDS, FORMS_BUILTINS
 
 __all__ = ['OracleFormsLexer']
 
@@ -12,7 +12,8 @@ class OracleFormsLexer(SqlLexer):
     mimetypes = ['text/x-oracle-forms']
     
     def get_tokens_unprocessed(self, text):
-        extra_content = [(FORMS_BUILTINS, Name.Builtin)]
+        extra_content = [(ORACLE_KEYWORDS, Keyword),
+                         (FORMS_BUILTINS, Name.Builtin)]
 		
         for index, token, value in SqlLexer.get_tokens_unprocessed(self, text):
             if token is Name:
