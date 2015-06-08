@@ -1,7 +1,7 @@
 from pygments.lexers.sql import SqlLexer
 from pygments.token import Keyword, Name
 
-from _forms_builtins import ORACLE_KEYWORDS, FORMS_BUILTINS
+from oraclesql._forms_builtins import ORACLE_KEYWORDS, FORMS_BUILTINS
 
 __all__ = ['OracleFormsLexer']
 
